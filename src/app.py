@@ -1,11 +1,14 @@
-from fastapi import HTTPException
+def signup_for_activity(student, activity):
+    participants = []
+    
+    # Validate student is not already registered
+    if student in participants:
+        raise ValueError("Student is already signed up!")
+        
+    participants.append(student)
+    # Code logic for signing up the student to the activity
+    print(f"{student} has been signed up for {activity}.")
 
-# Assuming participants is a list that stores email addresses of registered participants
-participants = []
+# Original function code needed for context
 
-async def signup_for_activity(email: str):
-    # Duplicate registration check
-    if email in participants:
-        raise HTTPException(status_code=400, detail="Student is already registered")
-    participants.append(email)
-    return {"message": "Registration successful"}
+# Code logic for handling activity signups, participant management, etc.
